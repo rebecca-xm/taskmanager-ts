@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import InputField from "./components/InputField";
+import { Task } from "./model";
+import { v4 as uuidv4 } from 'uuid';
 
-function App() {
+const App: React.FC = () => {
+  const [task, setTask] = useState<string>("");
+  const [tasks, setTasks] = useState<Task[]>([]);
+
+  const handleTask = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (task) {
+      setTasks([...tasks, { id: uuidv4(), task: task, isCompleted: false }]);
+      setTask("");
+    }
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Task Manager</h1>
+      <InputField task={task} setTask={setTask} handleTask={handleTask} />
     </div>
   );
-}
+};
 
 export default App;
