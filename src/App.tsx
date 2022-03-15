@@ -3,6 +3,7 @@ import "./App.css";
 import InputField from "./components/InputField";
 import { Task } from "./model";
 import { v4 as uuidv4 } from 'uuid';
+import TasksList from "./components/TasksList";
 
 const App: React.FC = () => {
   const [task, setTask] = useState<string>("");
@@ -21,6 +22,7 @@ const App: React.FC = () => {
     <div className="App">
       <h1>Task Manager</h1>
       <InputField task={task} setTask={setTask} handleTask={handleTask} />
+      <TasksList tasks={tasks} setTasks={setTasks} />
     </div>
   );
 };
