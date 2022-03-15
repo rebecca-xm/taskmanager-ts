@@ -1,0 +1,31 @@
+.inputForm {
+  display: flex;
+  position: relative;
+  align-items: center;
+  width: 80%;
+}
+
+.input {
+  width: 100%;
+  padding: 20px 30px;
+  border: none;
+}
+
+.input:focus {
+  box-shadow: 0 0 10px 1000px rgba(0, 0, 0, 0.5);
+  outline: none;
+}
+
+.inputBtn {
+  position: absolute;
+  right: 0;
+  width: 80px;
+  height: 40px;
+  margin: 10px;
+  border: none;
+  background-color: #d6a2e8;
+}
+
+.inputBtn:hover {
+  background-color: #dfbeeb;
+}
